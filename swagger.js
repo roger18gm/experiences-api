@@ -13,7 +13,7 @@ const doc = {
 //         title: "Roger's Work Portfolio API",
 //         description: "API docs for work experience and projects API"
 //     },
-//     host: "express-server-c7bg.onrender.com"
+//     host: "experiences-api-cdf5.onrender.com"
 // };
 
 const outputFile = './swagger-output.json';

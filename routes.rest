@@ -60,14 +60,14 @@ DELETE http://localhost:8080/projects/681ffcbc6332ce3fe196a4f4 HTTP/1.1
 
 // GET
 // get all projects
-GET https://express-server-c7bg.onrender.com/projects
+GET https://experiences-api-cdf5.onrender.com/projects
 
 // get contact by id
-GET https://express-server-c7bg.onrender.com/projects/6816c31651de9aab35415445
+GET https://experiences-api-cdf5.onrender.com/projects/6816c31651de9aab35415445
 
 
 // POST
-POST https://express-server-c7bg.onrender.com/projects HTTP/1.1
+POST https://experiences-api-cdf5.onrender.com/projects HTTP/1.1
 content-type: application/json
 
 {
@@ -83,7 +83,7 @@ content-type: application/json
 
 // PUT 
 // update all properties
-PUT https://express-server-c7bg.onrender.com/projects/681ffd396332ce3fe196a4f6 HTTP/1.1
+PUT https://experiences-api-cdf5.onrender.com/projects/681ffd396332ce3fe196a4f6 HTTP/1.1
 content-type: application/json
 
 {
@@ -97,7 +97,7 @@ content-type: application/json
 }
 
 // update one or multiple properties
-PUT https://express-server-c7bg.onrender.com/projects/6816c36451de9aab35415447 HTTP/1.1
+PUT https://experiences-api-cdf5.onrender.com/projects/6816c36451de9aab35415447 HTTP/1.1
 content-type: application/json
 
 {
@@ -107,7 +107,108 @@ content-type: application/json
 
 // DELETE
 // this you may have to alter to another id from the collection
-DELETE https://express-server-c7bg.onrender.com/projects/681fec87903dd5d23ce5ca65 HTTP/1.1
+DELETE https://experiences-api-cdf5.onrender.com/projects/681fec87903dd5d23ce5ca65 HTTP/1.1
 
 
 // highlight http request (and json body if applicable) then type ctrl + alt + R
+
+
+// GET
+// get all jobs
+GET http://localhost:8080/jobs
+
+// get contact by id
+GET http://localhost:8080/jobs/681fee16bf7e8fcb85af409a
+
+
+// POST
+POST http://localhost:8080/jobs HTTP/1.1
+content-type: application/json
+
+{
+    "title":"good employee",
+    "startDate":"Jan",
+    "endDate":"April",
+    "company":"BYUI",
+    "details":"I made thiah blah"
+}
+
+
+// PUT 
+// update all new properties
+PUT http://localhost:8080/jobs/681fee16bf7e8fcb85af409a HTTP/1.1
+content-type: application/json
+
+{
+    "title":"top worker",
+    "startDate":"dec 2020",
+    "endDate":"july 2025",
+    "company":"Church",
+    "details":"blah",
+}
+
+// update just one
+PUT http://localhost:8080/jobs/681fee16bf7e8fcb85af409a HTTP/1.1
+content-type: application/json
+
+{
+    "name":"the best employee"
+}
+
+
+// DELETE
+// this you may have to alter to another id from the collection
+DELETE http://localhost:8080/jobs/681ffcbc6332ce3fe196a4f4 HTTP/1.1
+
+
+//
+// production
+//
+
+// GET
+// get all projects
+GET https://experiences-api-cdf5.onrender.com/jobs
+
+// get contact by id
+GET https://experiences-api-cdf5.onrender.com/jobs/6816c31651de9aab35415445
+
+
+// POST
+POST https://experiences-api-cdf5.onrender.com/jobs HTTP/1.1
+content-type: application/json
+
+{
+    "title":"good employee",
+    "startDate":"Jan",
+    "endDate":"April",
+    "company":"BYUI",
+    "details":"I made thiah blah"
+}
+
+
+// PUT 
+// update all properties
+PUT https://experiences-api-cdf5.onrender.com/jobs/681ffd396332ce3fe196a4f6 HTTP/1.1
+content-type: application/json
+
+{
+    "title":"top worker",
+    "startDate":"dec 2020",
+    "endDate":"july 2025",
+    "company":"Church",
+    "details":"blah",
+}
+
+// update one or multiple properties
+PUT https://experiences-api-cdf5.onrender.com/jobs/6816c36451de9aab35415447 HTTP/1.1
+content-type: application/json
+
+{
+    "name":"the best employee"
+}
+
+
+
+// DELETE
+// this you may have to alter to another id from the collection
+DELETE https://experiences-api-cdf5.onrender.com/jobs/681fec87903dd5d23ce5ca65 HTTP/1.1
