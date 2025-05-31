@@ -16,6 +16,18 @@ const doc = {
 //     host: "experiences-api-cdf5.onrender.com"
 // };
 
+//   "host": "experiences-api-cdf5.onrender.com",
+//   "basePath": "",
+//   "schemes": [
+//     "https"
+//   ],
+
+//   "host": "localhost:8080",
+//   "basePath": "",
+//   "schemes": [
+//     "http"
+//   ],
+
 const outputFile = './swagger-output.json';
 const routes = ["./server.js"];
 
