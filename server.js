@@ -17,6 +17,13 @@ app
     })
 app.use("/", routes);
 
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(err.statusCode || 500).json({
+        message: err.message || 'Internal Server Error'
+    });
+});
+
 mongodb.initDb((err, mongodb) => {
     if (err) {
         console.log(err);

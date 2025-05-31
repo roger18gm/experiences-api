@@ -5,7 +5,7 @@
     "description": "API docs for work experience and projects API",
     "version": "1.0.0"
   },
-  "host": "experiences-api-cdf5.onrender.com",
+    "host": "experiences-api-cdf5.onrender.com",
   "basePath": "",
   "schemes": [
     "https"
@@ -46,10 +46,14 @@
                   "example": "any"
                 },
                 "startDate": {
-                  "example": "any"
+                  "type": "string",
+                  "format": "date",
+                  "example": "2023-05-01"
                 },
                 "endDate": {
-                  "example": "any"
+                  "type": "string",
+                  "format": "date",
+                  "example": "2024-05-01"
                 },
                 "url": {
                   "example": "any"
@@ -61,7 +65,11 @@
                   "example": "any"
                 },
                 "stack": {
-                  "example": "any"
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": ["JavaScript", "Node.js", "Express"]
                 }
               }
             }
@@ -126,10 +134,14 @@
                   "example": "any"
                 },
                 "startDate": {
-                  "example": "any"
+                  "type": "string",
+                  "format": "date",
+                  "example": "2020-05-01"
                 },
                 "endDate": {
-                  "example": "any"
+                  "type": "string",
+                  "format": "date",
+                  "example": "2021-06-01"
                 },
                 "url": {
                   "example": "any"
@@ -141,7 +153,11 @@
                   "example": "any"
                 },
                 "stack": {
-                  "example": "any"
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": ["JavaScript", "Node.js", "Express"]
                 }
               }
             }
@@ -207,10 +223,14 @@
                   "example": "any"
                 },
                 "startDate": {
-                  "example": "any"
+                  "type": "string",
+                  "format": "date",
+                  "example": "2020-05-01"
                 },
                 "endDate": {
-                  "example": "any"
+                  "type": "string",
+                  "format": "date",
+                  "example": "2021-06-01"
                 },
                 "company": {
                   "example": "any"
@@ -281,10 +301,14 @@
                   "example": "any"
                 },
                 "startDate": {
-                  "example": "any"
+                  "type": "string",
+                  "format": "date",
+                  "example": "2020-05-01"
                 },
                 "endDate": {
-                  "example": "any"
+                  "type": "string",
+                  "format": "date",
+                  "example": "2021-06-01"
                 },
                 "company": {
                   "example": "any"

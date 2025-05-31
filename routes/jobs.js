@@ -1,17 +1,18 @@
 import { createNewJob, deleteJobById, getAllJobs, getJobById, updateJobById } from '../controllers/jobs.js';
 import express from "express";
+import { handleValidation, validateJob, validateJobPatch } from '../middleware/validator.js';
 
 const router = express.Router();
 
-// this is /contacts because it is defined in the routes/index.js file
+// this is /jobs because it is defined in the routes/index.js file
 router.get("/", getAllJobs);
 
-// then this will be /contacts/:id
+// then this will be /jobs/:id
 router.get("/:id", getJobById);
 
-router.post("/", createNewJob);
+router.post("/", validateJob, handleValidation, createNewJob);
 
-router.put("/:id", updateJobById);
+router.put("/:id", validateJobPatch, handleValidation, updateJobById);
 
 router.delete("/:id", deleteJobById);
 
