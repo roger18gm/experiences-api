@@ -69,7 +69,7 @@
                   "items": {
                     "type": "string"
                   },
-                  "example": ["JavaScript", "Node.js", "Express"]
+                  "example": ["JavaScript", "Node.js", "Express", "at least 1 item"]
                 }
               }
             }
@@ -150,14 +150,14 @@
                   "example": "any"
                 },
                 "details": {
-                  "example": "any"
+                  "example": "10 characters minimum"
                 },
                 "stack": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   },
-                  "example": ["JavaScript", "Node.js", "Express"]
+                  "example": ["JavaScript", "Node.js", "Express", "at least 1 item"]
                 }
               }
             }
@@ -236,7 +236,7 @@
                   "example": "any"
                 },
                 "details": {
-                  "example": "any"
+                  "example": "10 characters minimum"
                 }
               }
             }
@@ -314,7 +314,327 @@
                   "example": "any"
                 },
                 "details": {
+                  "example": "10 characters minimum"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/certifications/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
                   "example": "any"
+                },
+                "issuingOrganization": {
+                  "example": "any"
+                },
+                "issueDate": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2023-05-01"
+                },
+                "expireDate": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2024-05-01"
+                },
+                "verificationUrl": {
+                  "example": "any"
+                },
+                "details": {
+                  "example": "10 characters minimum"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/certifications/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the project to update.",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "issuingOrganization": {
+                  "example": "any"
+                },
+                "issueDate": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2020-05-01"
+                },
+                "expireDate": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2021-06-01"
+                },
+                "verificationUrl": {
+                  "example": "any"
+                },
+                "details": {
+                  "example": "10 characters minimum"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/organizations/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "joinDate": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2023-05-01"
+                },
+                "leaveDate": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2024-05-01"
+                },
+                "type": {
+                  "example": "any"
+                },
+                "details": {
+                  "example": "10 characters minimum"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/organizations/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the project to update.",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "joinDate": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2020-05-01"
+                },
+                "leaveDate": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2021-06-01"
+                },
+                "type": {
+                  "example": "any"
+                },
+                "details": {
+                  "example": "10 characters minimum"
                 }
               }
             }
