@@ -20,7 +20,7 @@ export const validateProject = [
     body('name').notEmpty().withMessage('Name is required'),
     body('startDate').isISO8601().withMessage('Start date must be a valid date'),
     body('endDate').optional().isISO8601().withMessage('End date must be a valid date'),
-    body('url').notEmpty().withMessage('URL is required.'),
+    body('url').notEmpty().isURL().withMessage('Must be a valid URL'),
     body('type').notEmpty().withMessage('Project type is required'),
     body('details').isString().isLength({ min: 10 }).withMessage('Details must be at least 10 characters'),
     body('stack').isArray({ min: 1 }).withMessage('Tech stack must be a non-empty array'),
@@ -30,12 +30,45 @@ export const validateProjectPatch = [
     body('name').optional().notEmpty().withMessage('Name is required'),
     body('startDate').optional().isISO8601().withMessage('Start date must be a valid date'),
     body('endDate').optional().isISO8601().withMessage('End date must be a valid date'),
-    body('url').optional().notEmpty().withMessage('URL is required.'),
+    body('url').optional({ nullable: true, checkFalsy: true }).isURL().withMessage('Must be a valid URL'),
     body('type').optional().notEmpty().withMessage('Project type is required'),
     body('details').optional().isString().isLength({ min: 10 }).withMessage('Details must be at least 10 characters'),
     body('stack').optional().isArray({ min: 1 }).withMessage('Tech stack must be a non-empty array'),
 ];
 
+export const validateCertification = [
+    body('name').notEmpty().withMessage('Name is required'),
+    body('issuingOrganization').notEmpty().withMessage('Organization/entity name is required'),
+    body('issueDate').isISO8601().withMessage('Issue date must be a valid date'),
+    body('expireDate').optional().isISO8601().withMessage('Expiration date must be a valid date'),
+    body('verificationUrl').optional().optional({ nullable: true, checkFalsy: true }).isURL().withMessage('Must be a valid URL'),
+    body('details').isString().isLength({ min: 10 }).withMessage('Details must be at least 10 characters'),
+];
+
+export const validateCertificationPatch = [
+    body('name').optional().notEmpty().withMessage('Name is required'),
+    body('issuingOrganization').optional().notEmpty().withMessage('Organization/entity name is required'),
+    body('issueDate').optional().isISO8601().withMessage('Issue date must be a valid date'),
+    body('expireDate').optional().isISO8601().withMessage('Expiration date must be a valid date'),
+    body('verificationUrl').optional().optional({ nullable: true, checkFalsy: true }).isURL().withMessage('Must be a valid URL'),
+    body('details').optional().isString().isLength({ min: 10 }).withMessage('Details must be at least 10 characters'),
+];
+
+export const validateOrganization = [
+    body('name').notEmpty().withMessage('Name is required'),
+    body('joinDate').isISO8601().withMessage('Join date must be a valid date'),
+    body('leaveDate').optional().isISO8601().withMessage('Leave date must be a valid date'),
+    body('type').notEmpty().withMessage('Organization type is required'),
+    body('details').isString().isLength({ min: 10 }).withMessage('Details must be at least 10 characters'),
+];
+
+export const validateOrganizationPatch = [
+    body('name').optional().notEmpty().withMessage('Name is required'),
+    body('joinDate').optional().isISO8601().withMessage('Join date must be a valid date'),
+    body('leaveDate').optional().isISO8601().withMessage('Leave date must be a valid date'),
+    body('type').optional().notEmpty().withMessage('Organization type is required'),
+    body('details').optional().isString().isLength({ min: 10 }).withMessage('Details must be at least 10 characters'),
+];
 
 export const handleValidation = (req, res, next) => {
     const errors = validationResult(req);
