@@ -1,16 +1,20 @@
 // highlight http request (and json body if applicable) then type ctrl + alt + R
+
+///
+////
+///// projects
+////
+///
+
+//
 // local
 //
-
-// GET
-// get all projects
 GET http://localhost:8080/projects
 
-// get contact by id
+###
 GET http://localhost:8080/projects/681fee16bf7e8fcb85af409a
 
-
-// POST
+###
 POST http://localhost:8080/projects HTTP/1.1
 content-type: application/json
 
@@ -24,9 +28,7 @@ content-type: application/json
     "stack":"Javascript, Nodejs, Render, Mongodb"
 }
 
-
-// PUT 
-// update all new properties
+###
 PUT http://localhost:8080/projects/681fee16bf7e8fcb85af409a HTTP/1.1
 content-type: application/json
 
@@ -40,7 +42,7 @@ content-type: application/json
     "stack":"React, Typescript, MUI, Postgres"
 }
 
-// update just one
+###
 PUT http://localhost:8080/projects/681fee16bf7e8fcb85af409a HTTP/1.1
 content-type: application/json
 
@@ -48,25 +50,21 @@ content-type: application/json
     "name":"coolest app"
 }
 
-
-// DELETE
-// this you may have to alter to another id from the collection
+###
 DELETE http://localhost:8080/projects/681ffcbc6332ce3fe196a4f4 HTTP/1.1
-
 
 //
 // production
 //
 
-// GET
-// get all projects
+###
 GET https://experiences-api-cdf5.onrender.com/projects
 
-// get contact by id
+###
 GET https://experiences-api-cdf5.onrender.com/projects/6816c31651de9aab35415445
 
 
-// POST
+###
 POST https://experiences-api-cdf5.onrender.com/projects HTTP/1.1
 content-type: application/json
 
@@ -80,9 +78,7 @@ content-type: application/json
     "stack":"Javascript, Nodejs, Render, Mongodb"
 }
 
-
-// PUT 
-// update all properties
+###
 PUT https://experiences-api-cdf5.onrender.com/projects/681ffd396332ce3fe196a4f6 HTTP/1.1
 content-type: application/json
 
@@ -96,7 +92,7 @@ content-type: application/json
     "stack":"React, Typescript, MUI, Postgres"
 }
 
-// update one or multiple properties
+###
 PUT https://experiences-api-cdf5.onrender.com/projects/6816c36451de9aab35415447 HTTP/1.1
 content-type: application/json
 
@@ -104,24 +100,27 @@ content-type: application/json
     "name":"Pan"
 }
 
-
-// DELETE
-// this you may have to alter to another id from the collection
+###
 DELETE https://experiences-api-cdf5.onrender.com/projects/681fec87903dd5d23ce5ca65 HTTP/1.1
-
 
 // highlight http request (and json body if applicable) then type ctrl + alt + R
 
+///
+////
+///// jobs
+////
+///
 
-// GET
-// get all jobs
+//
+// local
+//
+###
 GET http://localhost:8080/jobs
 
-// get contact by id
+###
 GET http://localhost:8080/jobs/681fee16bf7e8fcb85af409a
 
-
-// POST
+###
 POST http://localhost:8080/jobs HTTP/1.1
 content-type: application/json
 
@@ -133,9 +132,7 @@ content-type: application/json
     "details":"I made thiah blah"
 }
 
-
-// PUT 
-// update all new properties
+###
 PUT http://localhost:8080/jobs/681fee16bf7e8fcb85af409a HTTP/1.1
 content-type: application/json
 
@@ -147,7 +144,7 @@ content-type: application/json
     "details":"blah",
 }
 
-// update just one
+###
 PUT http://localhost:8080/jobs/681fee16bf7e8fcb85af409a HTTP/1.1
 content-type: application/json
 
@@ -155,25 +152,20 @@ content-type: application/json
     "name":"the best employee"
 }
 
-
-// DELETE
-// this you may have to alter to another id from the collection
+###
 DELETE http://localhost:8080/jobs/681ffcbc6332ce3fe196a4f4 HTTP/1.1
-
 
 //
 // production
 //
 
-// GET
-// get all projects
+###
 GET https://experiences-api-cdf5.onrender.com/jobs
 
-// get contact by id
+###
 GET https://experiences-api-cdf5.onrender.com/jobs/6816c31651de9aab35415445
 
-
-// POST
+###
 POST https://experiences-api-cdf5.onrender.com/jobs HTTP/1.1
 content-type: application/json
 
@@ -185,9 +177,7 @@ content-type: application/json
     "details":"I made thiah blah"
 }
 
-
-// PUT 
-// update all properties
+###
 PUT https://experiences-api-cdf5.onrender.com/jobs/681ffd396332ce3fe196a4f6 HTTP/1.1
 content-type: application/json
 
@@ -199,7 +189,7 @@ content-type: application/json
     "details":"blah",
 }
 
-// update one or multiple properties
+###
 PUT https://experiences-api-cdf5.onrender.com/jobs/6816c36451de9aab35415447 HTTP/1.1
 content-type: application/json
 
@@ -207,8 +197,193 @@ content-type: application/json
     "name":"the best employee"
 }
 
-
-
-// DELETE
-// this you may have to alter to another id from the collection
+###
 DELETE https://experiences-api-cdf5.onrender.com/jobs/681fec87903dd5d23ce5ca65 HTTP/1.1
+
+///
+////
+///// certifications
+////
+///
+
+//
+// local
+//
+###
+GET http://localhost:8080/certifications
+
+###
+GET http://localhost:8080/certifications/681fee16bf7e8fcb85af409a
+
+###
+POST http://localhost:8080/certifications HTTP/1.1
+content-type: application/json
+
+{
+    "name":"cool certificaiton",
+    "issueDate":"2023-05-01",
+    "expireDate":"2025-05-01",
+    "verificationUrl":"certified.com",
+    "details":"I made thiah blah"
+}
+
+###
+PUT http://localhost:8080/certifications/681fee16bf7e8fcb85af409a HTTP/1.1
+content-type: application/json
+
+{
+    "name":"awesome certificaiton",
+    "issueDate":"2020-05-01",
+    "expireDate":"2025-05-01",
+    "verificationUrl":"example.com",
+    "details":"I made thiah blah"
+}
+
+###
+PUT http://localhost:8080/certifications/681fee16bf7e8fcb85af409a HTTP/1.1
+content-type: application/json
+
+{
+    "name":"the best cert"
+}
+
+###
+DELETE http://localhost:8080/certifications/681ffcbc6332ce3fe196a4f4 HTTP/1.1
+
+//
+// production
+//
+###
+GET https://experiences-api-cdf5.onrender.com/certifications
+
+###
+GET https://experiences-api-cdf5.onrender.com/certifications/681fee16bf7e8fcb85af409a
+
+###
+POST https://experiences-api-cdf5.onrender.com/certifications HTTP/1.1
+content-type: application/json
+
+{
+    "name":"cool certificaiton",
+    "issueDate":"2023-05-01",
+    "expireDate":"2025-05-01",
+    "verificationUrl":"certified.com",
+    "details":"I made thiah blah"
+}
+
+###
+PUT https://experiences-api-cdf5.onrender.com/certifications/681fee16bf7e8fcb85af409a HTTP/1.1
+content-type: application/json
+
+{
+    "name":"awesome certificaiton",
+    "issueDate":"2020-05-01",
+    "expireDate":"2025-05-01",
+    "verificationUrl":"example.com",
+    "details":"I made thiah blah"
+}
+
+###
+PUT https://experiences-api-cdf5.onrender.com/certifications/681fee16bf7e8fcb85af409a HTTP/1.1
+content-type: application/json
+
+{
+    "name":"the best cert"
+}
+
+###
+DELETE https://experiences-api-cdf5.onrender.com/certifications/681ffcbc6332ce3fe196a4f4 HTTP/1.1
+
+///
+////
+///// organizations
+////
+///
+
+//
+// local
+//
+###
+GET http://localhost:8080/organizations
+
+###
+GET http://localhost:8080/organizations/681fee16bf7e8fcb85af409a
+
+###
+POST http://localhost:8080/organizations HTTP/1.1
+content-type: application/json
+
+{
+    "name": "any",
+    "joinDate": "2023-05-01",
+    "leaveDate": "2024-05-01",
+    "type": "any",
+    "details": "10 characters minimum",
+}
+
+###
+PUT http://localhost:8080/organizations/681fee16bf7e8fcb85af409a HTTP/1.1
+content-type: application/json
+
+{
+    "name": "asdfasfdsa",
+    "joinDate": "2000-05-01",
+    "leaveDate": "2024-05-01",
+    "type": "aasfdsafdsa",
+    "details": "10 characters minimum",
+}
+
+###
+PUT http://localhost:8080/organizations/681fee16bf7e8fcb85af409a HTTP/1.1
+content-type: application/json
+
+{
+    "name":"the best organization"
+}
+
+###
+DELETE http://localhost:8080/organizations/681ffcbc6332ce3fe196a4f4 HTTP/1.1
+
+//
+// porduction
+//
+###
+GET https://experiences-api-cdf5.onrender.com/organizations
+
+###
+GET https://experiences-api-cdf5.onrender.com/681fee16bf7e8fcb85af409a
+
+###
+POST https://experiences-api-cdf5.onrender.com/organizations HTTP/1.1
+content-type: application/json
+
+{
+    "name": "any",
+    "joinDate": "2023-05-01",
+    "leaveDate": "2024-05-01",
+    "type": "any",
+    "details": "10 characters minimum",
+}
+
+###
+PUT https://experiences-api-cdf5.onrender.com/organizations/681fee16bf7e8fcb85af409a HTTP/1.1
+content-type: application/json
+
+{
+    "name": "asdfasfdsa",
+    "joinDate": "2000-05-01",
+    "leaveDate": "2024-05-01",
+    "type": "aasfdsafdsa",
+    "details": "10 characters minimum",
+}
+
+###
+PUT https://experiences-api-cdf5.onrender.com/organizations/681fee16bf7e8fcb85af409a HTTP/1.1
+content-type: application/json
+
+{
+    "name":"the best organization"
+}
+
+###
+DELETE https://experiences-api-cdf5.onrender.com/organizations/681ffcbc6332ce3fe196a4f4 HTTP/1.1
