@@ -19,6 +19,8 @@ passportConfig(passport);
 const app = express();
 const port = 8080;
 
+app.set('trust proxy', 1); // Trust the first proxy (Render uses one)
+
 // cors header policy
 app.use(express.json());
 app
