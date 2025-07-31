@@ -33,3 +33,7 @@ https://developers.google.com/people/quickstart/nodejs
 https://www.youtube.com/watch?v=PdFdd4N6LtI
 
 https://youtu.be/SBvmnHTQIPY?si=SKGxaRmWma1aJ6Dg&t=2534 Passport js, mongodb, google oauth
+
+## Cookie Auth
+
+https://www.reddit.com/r/webdev/comments/1jgfk3v/google_chrome_blocking_third_party_cookies_due_to/
