@@ -1,6 +1,7 @@
 import { createNewProject, deleteProjectById, getAllProjects, getProjectById, updateProjectById } from '../controllers/projects.js';
 import express from "express";
 import { handleValidation, validateProject, validateProjectPatch } from '../middleware/validator.js';
+import { isAuthenticated } from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -10,10 +11,10 @@ router.get("/", getAllProjects);
 // then this will be /projects/:id
 router.get("/:id", getProjectById);
 
-router.post("/", validateProject, handleValidation, createNewProject);
+router.post("/", isAuthenticated, validateProject, handleValidation, createNewProject);
 
-router.put("/:id", validateProjectPatch, handleValidation, updateProjectById);
+router.put("/:id", isAuthenticated, validateProjectPatch, handleValidation, updateProjectById);
 
-router.delete("/:id", deleteProjectById);
+router.delete("/:id", isAuthenticated, deleteProjectById);
 
 export default router;

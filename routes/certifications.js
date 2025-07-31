@@ -1,6 +1,7 @@
 import { createNewCertification, deleteCertificationById, getAllCertifications, getCertificationById, updateCertificationById } from '../controllers/certifications.js';
 import express from "express";
 import { handleValidation, validateCertification, validateCertificationPatch, } from '../middleware/validator.js';
+import { isAuthenticated } from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -10,10 +11,10 @@ router.get("/", getAllCertifications);
 // then this will be /projects/:id
 router.get("/:id", getCertificationById);
 
-router.post("/", validateCertification, handleValidation, createNewCertification);
+router.post("/", isAuthenticated, validateCertification, handleValidation, createNewCertification);
 
-router.put("/:id", validateCertificationPatch, handleValidation, updateCertificationById);
+router.put("/:id", isAuthenticated, validateCertificationPatch, handleValidation, updateCertificationById);
 
-router.delete("/:id", deleteCertificationById);
+router.delete("/:id", isAuthenticated, deleteCertificationById);
 
 export default router;

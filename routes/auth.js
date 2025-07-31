@@ -1,5 +1,7 @@
 import express from 'express';
 import passport from 'passport';
+import { login, register } from '../controllers/authentication.js';
+import { isAuthenticated } from '../middleware/auth.js';
 const router = express.Router();
 
 router.get('/google', passport.authenticate('google', { scope: ['profile'] }));
@@ -14,4 +16,13 @@ router.get('/logout', (req, res, next) => {
         res.redirect('/')
     });
 })
+
+router.post('/register', register);
+router.post('/login', login);
+router.get('/me', isAuthenticated, (req, res) => {
+    if (!req.user) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+    res.json(req.user);
+});
 export default router;

@@ -1,5 +1,5 @@
 import GoogleStrategy from 'passport-google-oauth20';
-import UserSchema from '../models/User.js';
+import UserSchema from '../models/GoogleUser.js';
 
 const passportConfig = (passport) => {
     passport.use(new GoogleStrategy({

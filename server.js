@@ -4,17 +4,15 @@ import express from 'express';
 import routes from './routes/index.js';
 import bodyParser from 'body-parser';
 import mongodb from './db/mongoConnect.js';
-import session from 'express-session';
-import passport from 'passport';
-import passportConfig from './db/passport.js';
-import MongoStore from 'connect-mongo';
+import cookieParser from 'cookie-parser';
+import dotenv from 'dotenv';
+import cors from 'cors';
+dotenv.config();
 
 // Get current directory for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// passport oauth google config
-passportConfig(passport);
 
 const app = express();
 const port = 8080;
@@ -22,34 +20,23 @@ const port = 8080;
 app.set('trust proxy', 1); // Trust the first proxy (Render uses one)
 
 // cors header policy
+const allowedOrigins = ['http://localhost:5173', 'https://rawwyurr.web.app']; // Replace with your actual frontend URL
+
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true, // Allow cookies to be sent
+}));
+app.use(cookieParser());
 app.use(express.json());
 app
     .use(bodyParser.json())
     .use((req, res, next) => {
-        res.setHeader('Access-Control-Allow-Origin', '*');
+        // res.setHeader('Access-Control-Allow-Origin', '*');
         res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Z-Key');
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
         next();
     })
 
-// session store
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
-    cookie: {
-        secure: process.env.MODE === 'prod', // only set true in production
-        httpOnly: true,
-        sameSite: 'lax'
-    }
-}))
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-// static htmls should go after passport but before routes 
-app.use(express.static(path.join(__dirname, 'views')))
 
 // routes
 app.use("/", routes);
