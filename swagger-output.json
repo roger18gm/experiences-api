@@ -45,14 +45,21 @@
                   "format": "date",
                   "example": "2024-05-01"
                 },
-                "url": {
+                "videoUrl": {
+                  "example": "any"
+                },
+                "sourceUrl": {
                   "example": "any"
                 },
                 "type": {
                   "example": "any"
                 },
                 "details": {
-                  "example": "any"
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": ["JavaScript", "Node.js", "Express", "at least 1 item"]
                 },
                 "stack": {
                   "type": "array",
@@ -133,16 +140,16 @@
                   "format": "date",
                   "example": "2021-06-01"
                 },
-                "url": {
+                "videoUrl": {
+                  "example": "any"
+                },
+                "sourceUrl": {
                   "example": "any"
                 },
                 "type": {
                   "example": "any"
                 },
                 "details": {
-                  "example": "10 characters minimum"
-                },
-                "stack": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -226,7 +233,11 @@
                   "example": "any"
                 },
                 "details": {
-                  "example": "10 characters minimum"
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": ["10 characters minimum", "Node.js", "Express", "at least 1 item"]
                 }
               }
             }
@@ -304,7 +315,14 @@
                   "example": "any"
                 },
                 "details": {
-                  "example": "10 characters minimum"
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": ["10 characters minimum", "Node.js", "Express", "at least 1 item"]
+                },
+               "location": {
+                  "example": "any"
                 }
               }
             }
