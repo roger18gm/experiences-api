@@ -60,11 +60,10 @@ export const login = async (req, res) => {
 
         res.cookie('sessionToken', user.authentication.sessionToken, {
             httpOnly: true,
-            secure: process.env.MODE === 'prod', // only set true in production
+            secure: true, // only set true in production
             sameSite: 'none',
         });
 
-        // res.status(200).json({ message: 'Login successful', sessionToken: user.authentication.sessionToken });
         res.status(200).json(user).end();
     } catch (error) {
         res.status(500).json({ error: 'Internal server error.' });

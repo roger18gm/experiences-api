@@ -23,7 +23,7 @@ app.set('trust proxy', 1); // Trust the first proxy (Render uses one)
 const allowedOrigins = ['https://rawwyurr.web.app', 'http://localhost:5173', 'http://localhost:5000'];
 
 app.use(cors({
-    origin: allowedOrigins,
+    origin: 'https://rawwyurr.web.app',
     credentials: true, // Allow cookies to be sent
 }));
 app.use(cookieParser());
