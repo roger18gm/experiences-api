@@ -20,7 +20,7 @@ const port = 8080;
 app.set('trust proxy', 1); // Trust the first proxy (Render uses one)
 
 // cors header policy
-const allowedOrigins = ['https://rawwyurr.web.app', 'http://localhost:5173', 'http://localhost:5000']; // Replace with your actual frontend URL
+const allowedOrigins = ['https://rawwyurr.web.app', 'http://localhost:5173', 'http://localhost:5000'];
 
 app.use(cors({
     origin: allowedOrigins,
@@ -28,14 +28,7 @@ app.use(cors({
 }));
 app.use(cookieParser());
 app.use(express.json());
-app
-    .use(bodyParser.json())
-    .use((req, res, next) => {
-        // res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Z-Key');
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-        next();
-    })
+app.use(bodyParser.json())
 
 
 // routes

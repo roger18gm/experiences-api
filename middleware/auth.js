@@ -6,10 +6,12 @@ export const isAuthenticated = async (req, res, next) => {
     try {
         const sessionToken = req.cookies['sessionToken']
         if (!sessionToken) {
+            console.error('Session token not found in cookies');
             return res.status(401).json({ error: 'Unauthorized' });
         }
         const user = await getUserBySessionToken(sessionToken);
         if (!user) {
+            console.error('User not found for session token:', sessionToken);
             return res.status(401).json({ error: 'Unauthorized' });
         }
         req.user = user;
