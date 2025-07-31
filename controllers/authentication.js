@@ -1,6 +1,8 @@
 import express from 'express';
 import { getUserByEmail, createUser } from '../models/User.js';
 import { random, authentication } from '../helpers/index.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const register = async (req, res) => {
     try {
@@ -47,6 +49,8 @@ export const login = async (req, res) => {
 
         const hashedPassword = authentication(user.authentication.salt, password);
         if (hashedPassword !== user.authentication.password) {
+            console.log("hashedPassword", hashedPassword);
+            console.log("user.authentication.password", user.authentication.password);
             return res.status(401).json({ error: 'Invalid credentials.' });
         }
 

@@ -20,7 +20,7 @@ const port = 8080;
 app.set('trust proxy', 1); // Trust the first proxy (Render uses one)
 
 // cors header policy
-const allowedOrigins = ['http://localhost:5173', 'https://rawwyurr.web.app']; // Replace with your actual frontend URL
+const allowedOrigins = ['https://rawwyurr.web.app', 'http://localhost:5173', 'http://localhost:5000']; // Replace with your actual frontend URL
 
 app.use(cors({
     origin: allowedOrigins,
