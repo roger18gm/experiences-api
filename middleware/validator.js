@@ -5,7 +5,8 @@ export const validateJob = [
     body('startDate').isISO8601().withMessage('Start date must be a valid date'),
     body('endDate').optional().isISO8601().withMessage('End date must be a valid date'),
     body('company').notEmpty().withMessage('Company name is required'),
-    body('details').isString().isLength({ min: 10 }).withMessage('Details must be at least 10 characters'),
+    body('details').isArray({ min: 1 }).withMessage('Details array must not be empty'),
+    body('location').notEmpty().withMessage('Location is required'),
 ];
 
 export const validateJobPatch = [
@@ -13,7 +14,8 @@ export const validateJobPatch = [
     body('startDate').optional().isISO8601().withMessage('Must be a valid date'),
     body('endDate').optional().isISO8601().withMessage('Must be a valid date'),
     body('company').optional().notEmpty().withMessage('If provided, company cannot be empty'),
-    body('details').optional().isString().isLength({ min: 10 }).withMessage('Details must be at least 10 characters'),
+    body('details').optional().isArray({ min: 1 }).withMessage('Details array must not be empty'),
+    body('location').optional().notEmpty().withMessage('If provided, location cannot be empty'),
 ];
 
 export const validateProject = [
