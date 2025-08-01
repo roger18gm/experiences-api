@@ -5,6 +5,7 @@ const organizationSchema = new mongoose.Schema({
     joinDate: { type: Date, required: true },
     leaveDate: { type: Date, required: false },
     type: { type: String, required: true },
+    position: { type: String, required: true },
     details: { type: String, required: true },
 });
 
