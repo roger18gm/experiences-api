@@ -48,7 +48,7 @@ export const updateProjectById = async (req, res) => {
         if (!result) {
             return res.status(404).json({ message: "Project not found" });
         }
-        res.status(204).json({ message: "Project updated", project: result });
+        res.status(200).json({ message: "Project updated", project: result });
     } catch (err) {
         res.status(400).json({ message: "Update failed", error: err.message });
     }

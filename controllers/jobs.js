@@ -48,7 +48,7 @@ export const updateJobById = async (req, res) => {
         if (!result) {
             return res.status(404).json({ message: "Job not found" });
         }
-        res.status(204).json({ message: "Job updated", job: result });
+        res.status(200).json({ message: "Job updated", job: result });
     } catch (err) {
         res.status(400).json({ message: "Update failed", error: err.message });
     }

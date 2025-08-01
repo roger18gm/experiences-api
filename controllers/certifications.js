@@ -48,7 +48,7 @@ export const updateCertificationById = async (req, res) => {
         if (!result) {
             return res.status(404).json({ message: "Certification not found" });
         }
-        res.status(204).json({ message: "Certification updated", certification: result });
+        res.status(200).json({ message: "Certification updated", certification: result });
     } catch (err) {
         res.status(400).json({ message: "Update failed", error: err.message });
     }
