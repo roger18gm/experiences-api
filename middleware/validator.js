@@ -2,7 +2,7 @@ import { body, validationResult } from 'express-validator';
 
 export const validateJob = [
     body('title').notEmpty().withMessage('Title is required'),
-    body('startDate').isISO8601().withMessage('Start date must be a valid date'),
+    body('startDate').optional({ nullable: true, checkFalsy: true }).isISO8601().withMessage('Start date must be a valid date'),
     body('endDate').optional({ nullable: true, checkFalsy: true }).isISO8601().withMessage('End date must be a valid date'),
     body('company').notEmpty().withMessage('Company name is required'),
     body('details').isArray({ min: 1 }).withMessage('Details array must not be empty'),
@@ -20,7 +20,7 @@ export const validateJobPatch = [
 
 export const validateProject = [
     body('name').notEmpty().withMessage('Name is required'),
-    body('startDate').isISO8601().withMessage('Start date must be a valid date'),
+    body('startDate').optional({ nullable: true, checkFalsy: true }).isISO8601().withMessage('Start date must be a valid date'),
     body('endDate').optional({ nullable: true, checkFalsy: true }).isISO8601().withMessage('End date must be a valid date'),
     body('sourceUrl').notEmpty().isURL().withMessage('Must be a valid URL'),
     body('siteUrl').optional({ nullable: true, checkFalsy: true }).isURL().withMessage('Must be a valid URL'),
