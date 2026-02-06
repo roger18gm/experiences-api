@@ -6,6 +6,7 @@ const projectSchema = new mongoose.Schema({
     endDate: { type: Date, required: false },
     videoUrl: { type: String, required: false },
     sourceUrl: { type: String, required: true },
+    siteUrl: { type: String, required: false },
     type: { type: String, required: true },
     details: { type: [String], required: true },
     stack: { type: [String], required: true }
